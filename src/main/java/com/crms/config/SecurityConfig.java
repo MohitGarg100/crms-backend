@@ -39,7 +39,7 @@ public class SecurityConfig {
 
         config.setAllowedOrigins(List.of(
             "http://localhost:5173",
-            "https://your-frontend-name.vercel.app"
+            "https://crms-frontend-two.vercel.app/"
         ));
 
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
