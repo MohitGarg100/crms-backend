@@ -33,7 +33,7 @@ public class StudentProfile {
 	private String stream;
 	
 	@Column(nullable = false)
-	private Double tenthPrecentage;
+	private Double tenthPercentage;
 	
 	@Column(nullable = false)
 	private Double twelfthPercentage;

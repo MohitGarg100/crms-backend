@@ -37,7 +37,7 @@ public class StudentProfileService {
 				.gender(request.getGender())
 				.course(request.getCourse())
 				.stream(request.getStream())
-				.tenthPrecentage(request.getTenthPercentage())
+				.tenthPercentage(request.getTenthPercentage())
 				.twelfthPercentage(request.getTwelfthPercentage())
 				.graduationCgpa(request.getGraduationCgpa())
 				.postGraduationCgpa(request.getPostGraduationCgpa())
