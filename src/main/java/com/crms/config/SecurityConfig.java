@@ -33,7 +33,7 @@ public class SecurityConfig {
 
         http
             .csrf(csrf -> csrf.disable())
-            .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+            .cors(cors -> {})
             .sessionManagement(session -> 
             session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             )
@@ -80,7 +80,7 @@ public class SecurityConfig {
 
         config.setAllowedOrigins(List.of(
             "http://localhost:5173",
-            "https://crms-frontend-two.vercel.app/"
+            "https://crms-frontend-two.vercel.app"
         ));
 
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
