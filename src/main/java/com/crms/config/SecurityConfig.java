@@ -40,6 +40,7 @@ public class SecurityConfig {
             .authenticationProvider(authenticationProvider(userDetailsService, passwordEncoder()))
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/auth/**").permitAll()
+                .requestMatchers(org.springframework.http.HttpMethod.OPTIONS, "/**").permitAll()
                 .requestMatchers("/admin/**").hasRole("ADMIN")
                 .requestMatchers("/student/**").hasRole("STUDENT")
                 .anyRequest().authenticated()
@@ -79,12 +80,12 @@ public class SecurityConfig {
 
         config.setAllowedOrigins(List.of(
             "http://localhost:5173",
-            "https://crms-frontend-two.vercel.app/"
+            "https://crms-frontend-two.vercel.app"
         ));
 
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
-        config.setAllowCredentials(true);
+        config.setAllowCredentials(false);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
