@@ -34,7 +34,7 @@ public class EmailService {
 				+ "\n\nIf you did not register, please ignore this email.";
 		
 		SimpleMailMessage mailMessage = new SimpleMailMessage();
-		mailMessage.setFrom("mgarg1904@gmail.com");	
+		mailMessage.setFrom("a5386e001@smtp-brevo.com");	
 		mailMessage.setTo(toEmail);
 		mailMessage.setSubject(subject);
 		mailMessage.setText(message);
