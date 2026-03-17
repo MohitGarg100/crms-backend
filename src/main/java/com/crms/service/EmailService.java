@@ -21,6 +21,8 @@ public class EmailService {
 	
 	public void sendVerificationEmail(String toEmail, String token) {
 		
+		System.out.println("Starting sendVerification");
+		
 		try {
 		
 			System.out.println("-> Sending verification email to: " + toEmail);
@@ -47,6 +49,8 @@ public class EmailService {
 			System.out.println("Email sending failed");
 			e.printStackTrace();
 		}
+		
+		System.out.println("Ending send verification");
 		
 	}
 	
