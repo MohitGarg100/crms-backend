@@ -83,7 +83,13 @@ public class AuthController {
 		
 		emailVerificationTokenRepository.save(verificationToken);
 		
-		emailService.sendVerificationEmail(savedUser.getEmail(), token);
+		new Thread(() -> {
+			try {
+				emailService.sendVerificationEmail(savedUser.getEmail(), token);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}).start();
 		
 		return "User registered successfully. Please verify your email.";
 	}
@@ -168,7 +174,13 @@ public class AuthController {
 		
 		passwordResetTokenRepository.save(resetToken);
 		
-		emailService.sendPasswordResetEmail(user.getEmail(), token);
+		new Thread(() -> {
+			try {
+				emailService.sendPasswordResetEmail(user.getEmail(), token);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}).start();
 		});
 		
 		return "If the email exists, a reset link has been sent.";

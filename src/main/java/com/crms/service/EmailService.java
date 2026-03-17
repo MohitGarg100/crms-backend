@@ -21,6 +21,10 @@ public class EmailService {
 	
 	public void sendVerificationEmail(String toEmail, String token) {
 		
+		try {
+		
+			System.out.println("-> Sending verification email to: " + toEmail);
+			
 		String subject = "CRMS Email Verification";
 		
 		String verificationUrl = baseUrl + "/auth/verify-email?token=" + token;
@@ -30,12 +34,20 @@ public class EmailService {
 				+ "\n\nIf you did not register, please ignore this email.";
 		
 		SimpleMailMessage mailMessage = new SimpleMailMessage();
+		mailMessage.setFrom("mgarg1904@gmail.com");	
 		mailMessage.setTo(toEmail);
-		
 		mailMessage.setSubject(subject);
 		mailMessage.setText(message);
 		
 		mailSender.send(mailMessage);
+		
+		System.out.println("Email sent successfully");
+			
+		} catch (Exception e) {
+			System.out.println("Email sending failed");
+			e.printStackTrace();
+		}
+		
 	}
 	
 	public void sendPasswordResetEmail(String toEmail, String token) {
